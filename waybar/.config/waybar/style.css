@@ -1,34 +1,33 @@
-@define-color background  #040C10;
-@define-color foreground  rgba(255, 255, 255, 0.7);
-@define-color primary     #97c0c0;
+@define-color background #040C10;
+@define-color foreground rgba(255, 255, 255, 0.7);
+@define-color primary #97c0c0;
 
 * {
-	/* font-family: "Jet Brains Mono", "Font Awesome 6 Free"; font weight, font size and font. propo nerd font for centered icons, symbols nerd font does not work great on bold text */
-	/*font-family: "JetBrainsMono Nerd Font Propo";*/
-        font-family: "ZedMono Nerd Font", Roboto, Helvetica, Arial, sans-serif;
-	min-height: 0;
-	/*font-weight: bold;*/
-	font-size: 13px;
-        padding: 0;
-        margin: 0;
+  /* font-family: "Jet Brains Mono", "Font Awesome 6 Free"; font weight, font size and font. propo nerd font for centered icons, symbols nerd font does not work great on bold text */
+  /*font-family: "JetBrainsMono Nerd Font Propo";*/
+  font-family: "ZedMono Nerd Font", Roboto, Helvetica, Arial, sans-serif;
+  min-height: 0;
+  /*font-weight: bold;*/
+  font-size: 13px;
+  padding: 0;
+  margin: 0;
 
-        text-shadow: 
-            2px 2px alpha(@background, 0.2),
-            0 0 5px alpha(@background, 0.8);
+  text-shadow:
+    2px 2px alpha(@background, 0.2),
+    0 0 5px alpha(@background, 0.8);
 }
 
 window#waybar {
-        background: transparent; /*main window transparent background */
-        background-repeat: repeat-x;
-        background-image: 
-        url('./tex.png'), 
-        linear-gradient(
-            to top,
-            alpha(@background, 0.0) 20%,
-            alpha(@background, 0.2)
-        );
+  background: transparent;
+  /*main window transparent background */
+  background-repeat: repeat-x;
+  background-image:
+    url('./tex.png'),
+    linear-gradient(to top,
+      alpha(@background, 0.0) 20%,
+      alpha(@background, 0.2));
 
-        /*
+  /*
         background-image:     linear-gradient(
             to top,
             alpha(@background, 0.0) 20%,
@@ -38,11 +37,15 @@ window#waybar {
 }
 
 tooltip {
-	background: @background; /* tooltip background */
-	border: 2px solid @foreground; /* tooltip border size and color */
-	border-radius: 20px; /* tooltip rounded corners */
+  background: @background;
+  /* tooltip background */
+  border: 2px solid @foreground;
+  /* tooltip border size and color */
+  border-radius: 20px;
+  /* tooltip rounded corners */
 }
 
+#battery,
 #cpu,
 #memory,
 #workspaces,
@@ -53,54 +56,77 @@ tooltip {
 #tray,
 #pulseaudio,
 #network {
-	margin: 0px 8px; /* empty spaces around */
-	padding: 0 36px; /* extend pill size, vertical then horizontal */
-	color: @foreground;
+  margin: 0px 8px;
+  /* empty spaces around */
+  padding: 0 36px;
+  /* extend pill size, vertical then horizontal */
+  color: @foreground;
 }
 
 #tray {
-    background: transparent;
+  background: transparent;
 }
 
 #tray menu {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 #workspaces {
-        padding-left: 8px;
-        padding-right: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 #workspaces button {
-        padding: 0 4px;
-        margin: 4px 3px;
+  padding: 0 4px;
+  margin: 4px 3px;
 }
 
 /*#workspaces button.empty {}*/
 #workspaces button.active {
-	padding: 0 14px; /* extend pill size, vertical then horizontal */
-        margin: 4px 8px;
+  padding: 0 14px;
+  /* extend pill size, vertical then horizontal */
+  margin: 4px 8px;
 
-	/* active workspace */
-	background: @primary; /* background color */
-	/*border-color: #7aa2f7;*/
-        color: alpha(@background, 0.4);
-        color: inherit;
+  /* active workspace */
+  background: @primary;
+  /* background color */
+  /*border-color: #7aa2f7;*/
+  color: alpha(@background, 0.4);
+  color: inherit;
 
-        background: alpha(@primary, 0.2);
-        background-image:     linear-gradient(
-            to top,
-            alpha(@primary, 0.4),
-            @primary
-        );
-	border-radius: 48px; /* tooltip rounded corners */
+  background: alpha(@primary, 0.2);
+  background-image: linear-gradient(to top,
+      alpha(@primary, 0.4),
+      @primary );
+  border-radius: 48px;
+  /* tooltip rounded corners */
 
-	/*color: #a6adc8;*/ /* icon(text) color */
-	/*	color: #c0caf5;*/
-	font-weight: bold;
+  /*color: #a6adc8;*/
+  /* icon(text) color */
+  /*	color: #c0caf5;*/
+  font-weight: bold;
 }
 
 #workspaces button.active label {
-        text-shadow: 0 0 3px alpha(@foreground, 1.0);
+  text-shadow: 0 0 3px alpha(@foreground, 1.0);
 }
 
+#battery.charging,
+#battery.plugged {
+  color: #a6e3a1;
+}
+
+#battery.warning:not(.charging) {
+  color: #f9e2af;
+}
+
+#battery.critical:not(.charging) {
+  color: #f38ba8;
+  animation: blink 1s linear infinite alternate;
+}
+
+@keyframes blink {
+  to {
+    color: #ffffff;
+  }
+}

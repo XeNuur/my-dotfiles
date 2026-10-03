@@ -1,0 +1,17 @@
+show=drun
+show_all=true
+gtk_dark=true
+location=center
+insensitive=false
+allow_markup=true
+allow_images=false
+line_wrap=word
+lines=8
+width=600
+content_halign=fill
+hide_scroll=true
+normal_window=false
+no_actions=true
+prompt=...
+allow_markup=true
+orientation=vertical

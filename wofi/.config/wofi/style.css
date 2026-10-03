@@ -1,0 +1,79 @@
+@define-color background  #040C10;
+@define-color foreground  rgba(255, 255, 255, 0.7);
+@define-color primary     #97c0c0;
+
+@define-color prbgmix    rgb(59,  59, 40);
+
+* {
+	font-family:	        "ZedMono Nerd Font";
+	background-color:       transparent;
+	color:			@foreground;
+        font-size:              16px;
+}
+
+#window {
+        background:                    transparent;
+	padding: 			12px;
+
+        /*
+        border:                        2px solid;
+        border-color:                  @primary;
+        */
+        border-radius:                 10px;
+        background-image:              
+            url('/home/janlo/.config/wofi/tex.png'),
+            linear-gradient(
+                to top, 
+                rgba(0,20,20,0),
+                alpha(@background, 0.0) 0%,
+                alpha(darker(@primary), 0.8)
+            );
+}
+
+#input {
+	background-color:                 transparent;
+        color:                            @foreground;
+
+	padding:                          1.5em 1em;
+        border-radius:                    10px;
+        margin: 2px 1em;
+
+        border:                           0px;
+        font-size:                        32px;
+}
+
+#entry {
+  border-radius: 10px;
+
+  padding: 12px;
+  margin: 2px 1em;
+}
+
+#entry:selected {
+    background: alpha(@primary, 0.2);
+    background-image:     linear-gradient(
+        to top,
+        alpha(@primary, 0.4),
+        @primary
+    );
+    border-radius: 10px; /* tooltip rounded corners */
+
+    background-color: rgba(0,255,255,0.4);
+    outline: none;
+}
+
+#img {
+  margin-right: 6px;
+}
+
+#text {
+  margin: 2px;
+  text-shadow: 
+      2px 2px alpha(@background, 0.2),
+      0 0 5px alpha(@background, 0.8);
+}
+
+#text:selected {
+    text-shadow: 0 0 3px alpha(@foreground, 1.0);
+}
+

@@ -1,0 +1,142 @@
+configuration {
+	modi:				"drun,run,filebrowser";
+	font:				"ZedMono Nerd Font 11";
+	display-drun: 			"";
+	sidebar-mode: 			false;
+
+        display-drun:               " ";
+        display-run:                " ";
+        display-filebrowser:        " ";
+        display-window:             " ";
+
+        show-icons:                 false;
+}
+
+@theme "/dev/null"
+
+* {
+	bg:				#345678;
+	fg:				#C0CAF5;
+	primary:		        #97c0c0;
+        bg-alt:                         transparent;
+
+	background-color:		transparent;
+	text-color:			@fg;
+}
+
+window {
+        background:                    transparent;
+        transparency:                  "real";
+	width:			    	420px;
+	y-offset:                       0px;
+	padding: 			12px;
+
+        /*
+        border:                        2px solid;
+        border-color:                  @primary;
+        */
+        border-radius:                 10px;
+
+        location:                      center;
+        anchor:                        center;
+
+        background-image:              linear-gradient(
+            to top, 
+            rgba(0,20,20,0),
+            rgba(31,72,72, 0.4),
+            rgba(111,152,152, 1)
+        );
+}
+
+entry {
+	placeholder:			"";
+	expand:                         true;
+	background-color:               transparent;
+        color:                          @fg;
+        placeholder:                    "...";
+	font:				"ZedMono Nerd Font 20";
+}
+
+inputbar {
+	children: 			  [ entry ];
+	expand:                           false;
+	background-color:               transparent;
+
+	padding:                          1.5em 1em;
+        border-radius:                    10px;
+}
+
+listview {
+	columns:                        1;
+	lines:	                        8;
+	cycle:                          false;
+	dynamic:                        true;
+	scrollbar:                      false;
+	layout:                         vertical;
+
+	background-color:               transparent;
+        background-image:               url("tex.png");
+        border-radius:                  10px;
+}
+
+mainbox {
+	children:                       [ inputbar, mode-switcher, listview];
+
+        spacing:                     8px;
+        margin:                      0px;
+        padding:                     5px;
+        
+        background-color:            transparent;
+        background-alt:              transparent;
+}
+
+element {
+	padding:                         9px 10px;
+        margin:                          2px 2px;
+        border-radius:                   10px;
+        background-color:                @bg-alt;
+}
+
+element-text {
+	expand:                         true;
+	vertical-align:                 0.5;
+	margin:                         2px 3px;
+	background-color:               inherit;
+        text-color:                     inherit;
+}
+
+element-icon {
+        background-color:            transparent;
+        text-color:                  inherit;
+        size:                        16px;
+}
+
+element selected {
+	text-color:                     @bg;
+        background-image:              linear-gradient(
+            to right, 
+            #97c0c0,
+            #97c0c088,
+            rgba(33, 40, 40, 0.0)
+        );
+}
+
+
+mode-switcher {
+    enabled:                     true;
+    spacing:                     1em;
+
+    background-color:            transparent;
+    text-color:                  @fg;
+}
+
+button {
+    width:                       28px;
+
+    background-color:            @transparent;
+    text-color:                  rgba(151, 192, 192, 0.2);
+    cursor:                      pointer;
+}
+button selected {
+    text-color:                  rgba(151, 192, 192, 0.9);
+}

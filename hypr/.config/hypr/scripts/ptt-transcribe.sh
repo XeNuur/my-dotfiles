@@ -1,0 +1,1 @@
+/home/janlo/.local/bin/ptt-transcribe.sh

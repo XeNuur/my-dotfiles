@@ -1,0 +1,109 @@
+{
+	"layer": "top",
+        "position": "top",
+        "mod": "dock",
+
+	"reload_style_on_change": true,
+	"modules-left": [  
+            "clock",
+            "hyprland/workspaces",
+            "niri/workspaces",
+            "tray",
+        ],
+	"modules-center": [ "mpris" ],
+	"modules-right": [ 
+            "cpu",
+	          "memory",
+            "pulseaudio",
+        ],
+	"hyprland/workspaces": {
+		"format": "{icon}",
+		"on-click": "activate",
+		"sort-by-number": true,
+		"on-scroll-up": "hyprctl dispatch workspace e-1",
+		"on-scroll-down": "hyprctl dispatch workspace e+1",
+	},
+	"mpris": {
+		"format": "{status_icon}  {title} - {artist}",
+		"format-paused": "{status_icon}  {title} - {artist}",
+		"dynamic-len": 10,
+		//"max-length": 64,
+
+		"status-icons": {
+			"paused": "⏸ ",
+			"playing": " ",
+			"stopped": " "
+		}
+	},
+	"clock": {
+		"interval": 1,
+		"format": "  {:%d.%m     %H:%M}  ",
+		//"format": "  {:%H:%M}  ",
+		"tooltip-format": "<tt><small>{calendar}</small></tt>",
+		"calendar": {
+			"mode"          : "year",
+			"weeks-pos"     : "right",
+			"mode-mon-col"  : 3,
+			"on-scroll"     : 1,
+			"format": {
+				"months":     "<span color='#cdd6f4'><b>{}</b></span>",
+				"days":       "<span color='#89b4fa'><b>{}</b></span>",
+				"weeks":      "<span color='#b4befe'><b>W{}</b></span>",
+				"weekdays":   "<span color='#b4befe'><b>{}</b></span>",
+				"today":      "<span color='#f38ba8'><b>{}</b></span>"
+			}
+		},
+		"actions":  {
+			"on-click-right": "mode",
+			"on-click-forward": "tz_up",
+			"on-click-backward": "tz_down",
+			"on-scroll-up": "shift_up",
+			"on-scroll-down": "shift_down"
+		}
+	},
+	"tray": {
+		"icon-size": 15,
+		"spacing": 10
+	},
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"format-bluetooth": "{icon} {volume}%",
+		"format-muted": "󰖁 ",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "󰂑",
+			"headset": " ",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": [" ", " "]
+		},
+		"scroll-step": 1,
+		"on-click": "pavucontrol",
+		"ignored-sinks": ["Easy Effects Sink"],
+		"format-source": " {volume}%",
+		"format-source-muted": " {volume}%"
+	},
+	"network": {
+		"format": "{ifname}",
+		"format-wifi": "{icon} {essid}",
+		"format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "],
+		"format-ethernet": "󰈀  {ipaddr}/{cidr}",
+		"format-disconnected": "󰲜 ",
+		"tooltip-format": "󰈀 {ifname} via {gwaddr}\n󰩠 {ipaddr}/{cidr}\n󰱦 {bandwidthDownBits}\n󰳘 {bandwidthUpBits}",
+		"tooltip-format-wifi": "{icon} {essid} ({signalStrength}%) {ifname}\n󰩠 {ipaddr}/{cidr}\n󰱦 {bandwidthDownBits}\n󰳘 {bandwidthUpBits}",
+		"tooltip-format-ethernet": "󰈀 {ipaddr}/{cidr} {ifname}\n󰳘 {bandwidthUpBits}\n󰱦 {bandwidthDownBits}",
+		"tooltip-format-disconnected": "Offline",
+		"max-length": 50
+	},
+	"memory": {
+		"interval": 25,
+                "format": "  {}%"
+	},
+	"cpu": {
+		"interval": 8,
+                "format": "  {usage}%",
+	},
+}
+
+

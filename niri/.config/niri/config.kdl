@@ -1,0 +1,11 @@
+// This config is in the KDL format: https://kdl.dev
+// "/-" comments out the following node.
+// Check the wiki for a full description of the configuration:
+// https://yalter.github.io/niri/Configuration:-Introduction
+
+include "niri/io.kdl"
+include "niri/layout.kdl"
+include "niri/autostart.kdl"
+include "niri/general.kdl"
+include "niri/bind.kdl"
+
